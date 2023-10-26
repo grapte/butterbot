@@ -1,0 +1,88 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/Transactions",
+  "definitions": {
+    "Transactions": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "result": {
+          "type": "string"
+        },
+        "cursor": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "transactions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Transaction"
+          }
+        }
+      },
+      "required": [],
+      "title": "Transactions"
+    },
+    "Transaction": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "blockchain": {
+          "type": "string"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string",
+          "format": "integer"
+        },
+        "transaction_type": {
+          "type": "string"
+        },
+        "hash": {
+          "type": "string"
+        },
+        "from": {
+          "$ref": "#/definitions/AddressOwner"
+        },
+        "to": {
+          "$ref": "#/definitions/AddressOwner"
+        },
+        "timestamp": {
+          "type": "integer"
+        },
+        "amount": {
+          "type": "number"
+        },
+        "amount_usd": {
+          "type": "number"
+        },
+        "transaction_count": {
+          "type": "integer"
+        }
+      },
+      "required": [],
+      "title": "Transaction"
+    },
+    "AddressOwner": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "owner_type": {
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "From"
+    }
+  }
+}
